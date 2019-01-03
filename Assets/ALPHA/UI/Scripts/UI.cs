@@ -18,8 +18,8 @@ public class UI : MonoBehaviour
         {
             canvas.SetActive(true);
             Time.timeScale = 0.3f;
-            GameObject.Find("Main Camera").GetComponent<PlayerLook>().enabled = false;
-            GameObject.Find("Player").GetComponent<PlayerMove>().enabled = false;
+            //GameObject.Find("Main Camera").GetComponent<PlayerLook>().enabled = false;
+            //GameObject.Find("Player").GetComponent<PlayerMove>().enabled = false;
             //Cursor.lockState = CursorLockMode.Locked;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -28,8 +28,8 @@ public class UI : MonoBehaviour
         {
             canvas.SetActive(false);
             Time.timeScale = 1;
-            GameObject.Find("Main Camera").GetComponent<PlayerLook>().enabled = true;
-            GameObject.Find("Player").GetComponent<PlayerMove>().enabled = true;
+            //GameObject.Find("Main Camera").GetComponent<PlayerLook>().enabled = true;
+            //GameObject.Find("Player").GetComponent<PlayerMove>().enabled = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
