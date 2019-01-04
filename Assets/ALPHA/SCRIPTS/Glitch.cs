@@ -23,6 +23,7 @@ public class Glitch : MonoBehaviour
         if (Physics.Raycast(rayo, out hit) && hit.transform.gameObject.layer == 18 && Input.GetKey(KeyCode.Q))
         {
             hit.transform.gameObject.layer = 19;
+            hit.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
         }
     }
 }
