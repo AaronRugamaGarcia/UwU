@@ -27,7 +27,12 @@ ModelImporter:
     4300004: Rock_06_A_LOD2
     4300006: Rock_06_A_LOD3
     20500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultMat1
+    second: {fileID: 2100000, guid: a032ae8ad4882a84ab36a2cf1305ae32, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
