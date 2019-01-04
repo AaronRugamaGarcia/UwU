@@ -8,6 +8,8 @@ public class Glitch : MonoBehaviour
     RaycastHit hit;
     GameObject cam;
     Vector3 forwardVector;
+    public Material m_glitch;
+
 
     void Start()
     {
@@ -23,7 +25,8 @@ public class Glitch : MonoBehaviour
         if (Physics.Raycast(rayo, out hit) && hit.transform.gameObject.layer == 18 && Input.GetKeyUp(KeyCode.Q))
         {
             hit.transform.gameObject.layer = 19;
-            hit.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            //hit.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            hit.transform.gameObject.GetComponent<Renderer>().material = m_glitch;
             hit.transform.gameObject.GetComponent<ignoreCharacterControllerCollision>().enabled = true;
         }
     }
