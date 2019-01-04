@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManagerPersistent : MonoBehaviour
+public class SequenceManager : MonoBehaviour
 {
     public Scene Sc_Scene0;
-    public string s_Scene0 = "Level0";
+    public string s_Scene0 = "Shaders_Scene";
     public bool b_Scene0;
 
     public Scene Sc_Scene1;
@@ -26,17 +26,17 @@ public class SceneManagerPersistent : MonoBehaviour
     //START::::::::::::::::::::::::::::::::::
     private void Start()
     {
-        b_Scene0 = true;
-        b_Scene1 = false;
-        b_Scene2 = false;
-        b_Scene3 = false;
+        //b_Scene0 = true;
+        //b_Scene1 = false;
+        //b_Scene2 = false;
+        //b_Scene3 = false;
         StartCoroutine(LoadSceneAndSetActive0());
 
 
 
-        StartCoroutine(UnloadSceneAndSetActive1());
-        StartCoroutine(UnloadSceneAndSetActive2());
-        StartCoroutine(UnloadSceneAndSetActive3());
+        //StartCoroutine(UnloadSceneAndSetActive1());
+        //StartCoroutine(UnloadSceneAndSetActive2());
+        //StartCoroutine(UnloadSceneAndSetActive3());
     }
 
    
@@ -45,31 +45,31 @@ public class SceneManagerPersistent : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !b_Scene0)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
 
-            b_Scene0 = true;
-            b_Scene1 = false;
-            b_Scene2 = false;
-            b_Scene3 = false;
-            StartCoroutine(LoadSceneAndSetActive0());
+            //b_Scene0 = true;
+            //b_Scene1 = false;
+            //b_Scene2 = false;
+            //b_Scene3 = false;
+            StartCoroutine(LoadSceneAndSetActive1());
 
 
 
-            StartCoroutine(UnloadSceneAndSetActive1());
-            StartCoroutine(UnloadSceneAndSetActive2());
-            StartCoroutine(UnloadSceneAndSetActive3());
+            //StartCoroutine(UnloadSceneAndSetActive1());
+            //StartCoroutine(UnloadSceneAndSetActive2());
+            //StartCoroutine(UnloadSceneAndSetActive3());
 
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !b_Scene1)
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
 
             b_Scene0 = false;
             b_Scene1 = true;
             b_Scene2 = false;
             b_Scene3 = false;
-            StartCoroutine(LoadSceneAndSetActive1());
+            StartCoroutine(UnloadSceneAndSetActive0());
 
 
 
@@ -123,7 +123,7 @@ public class SceneManagerPersistent : MonoBehaviour
     IEnumerator LoadSceneAndSetActive0()
     {
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(("Level0"), LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(("Shaders_Scene"), LoadSceneMode.Additive);
 
         while (!asyncLoad.isDone)
         {
@@ -133,7 +133,7 @@ public class SceneManagerPersistent : MonoBehaviour
     IEnumerator LoadSceneAndSetActive1()
     {
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(("TreeHouse"), LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(("Servers"), LoadSceneMode.Additive);
 
         while (!asyncLoad.isDone)
         {
