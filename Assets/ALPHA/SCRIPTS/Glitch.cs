@@ -19,5 +19,10 @@ public class Glitch : MonoBehaviour
         Vector3 forwardVector = cam.transform.forward * 8;
         rayo = new Ray(cam.transform.position, forwardVector);
         Debug.DrawRay(cam.transform.position, forwardVector, Color.green);
+
+        if (Physics.Raycast(rayo, out hit) && hit.transform.gameObject.layer == 18 && Input.GetKey(KeyCode.Q))
+        {
+            hit.transform.gameObject.layer = 19;
+        }
     }
 }
