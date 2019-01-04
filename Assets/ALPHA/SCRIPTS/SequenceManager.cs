@@ -21,7 +21,7 @@ public class SceneManagerPersistent : MonoBehaviour
     public string s_Scene3 = "Oficine";
     public bool b_Scene3;
 
-
+    
 
     //START::::::::::::::::::::::::::::::::::
     private void Start()
@@ -39,10 +39,12 @@ public class SceneManagerPersistent : MonoBehaviour
         StartCoroutine(UnloadSceneAndSetActive3());
     }
 
-
+   
     //INPUTS::::::::::::::::::::::::::::::::::::::
     void Update()
     {
+
+
         if (Input.GetKeyDown(KeyCode.Alpha1) && !b_Scene0)
         {
 
