@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SequenceManager : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject playerCamera;
+    public Raymarcher fractal;
+
     public Scene Sc_Scene0;
-    public string s_Scene0 = "Shaders_Scene";
+    public string s_Scene0 = "Servers";
     public bool b_Scene0;
 
     public Scene Sc_Scene1;
-    public string s_Scene1 = "TreeHouse";
+    public string s_Scene1 = "Shaders_Scene";
     public bool b_Scene1;
 
     public Scene Sc_Scene2;
@@ -21,17 +25,24 @@ public class SequenceManager : MonoBehaviour
     public string s_Scene3 = "Oficine";
     public bool b_Scene3;
 
-    
+    private void Awake()
+    {
+        fractal = playerCamera.GetComponent<Raymarcher>();
+        
+    }
 
     //START::::::::::::::::::::::::::::::::::
     private void Start()
     {
+
+
         //b_Scene0 = true;
         //b_Scene1 = false;
         //b_Scene2 = false;
         //b_Scene3 = false;
+        //player.GetComponent<Raymarcher>().enabled = false;
         StartCoroutine(LoadSceneAndSetActive0());
-
+        fractal.enabled = false;
 
 
         //StartCoroutine(UnloadSceneAndSetActive1());
@@ -53,10 +64,10 @@ public class SequenceManager : MonoBehaviour
             //b_Scene2 = false;
             //b_Scene3 = false;
             StartCoroutine(LoadSceneAndSetActive1());
+            fractal.enabled = true;
 
 
-
-            //StartCoroutine(UnloadSceneAndSetActive1());
+            StartCoroutine(UnloadSceneAndSetActive0());
             //StartCoroutine(UnloadSceneAndSetActive2());
             //StartCoroutine(UnloadSceneAndSetActive3());
 
@@ -69,7 +80,7 @@ public class SequenceManager : MonoBehaviour
             b_Scene1 = true;
             b_Scene2 = false;
             b_Scene3 = false;
-            StartCoroutine(UnloadSceneAndSetActive0());
+            StartCoroutine(UnloadSceneAndSetActive2());
 
 
 
@@ -123,7 +134,7 @@ public class SequenceManager : MonoBehaviour
     IEnumerator LoadSceneAndSetActive0()
     {
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(("Shaders_Scene"), LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(("Servers"), LoadSceneMode.Additive);
 
         while (!asyncLoad.isDone)
         {
@@ -133,7 +144,7 @@ public class SequenceManager : MonoBehaviour
     IEnumerator LoadSceneAndSetActive1()
     {
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(("Servers"), LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(("Shaders_Scene"), LoadSceneMode.Additive);
 
         while (!asyncLoad.isDone)
         {
@@ -169,7 +180,7 @@ public class SequenceManager : MonoBehaviour
     IEnumerator UnloadSceneAndSetActive0()
     {
 
-        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync("Level0");
+        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync("Servers");
 
         while (!asyncLoad.isDone)
         {
@@ -179,7 +190,7 @@ public class SequenceManager : MonoBehaviour
     IEnumerator UnloadSceneAndSetActive1()
     {
 
-        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync("TreeHouse");
+        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync("Shaders_Scene");
 
         while (!asyncLoad.isDone)
         {
