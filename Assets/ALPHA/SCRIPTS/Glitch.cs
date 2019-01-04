@@ -20,10 +20,11 @@ public class Glitch : MonoBehaviour
         rayo = new Ray(cam.transform.position, forwardVector);
         Debug.DrawRay(cam.transform.position, forwardVector, Color.green);
 
-        if (Physics.Raycast(rayo, out hit) && hit.transform.gameObject.layer == 18 && Input.GetKey(KeyCode.Q))
+        if (Physics.Raycast(rayo, out hit) && hit.transform.gameObject.layer == 18 && Input.GetKeyUp(KeyCode.Q))
         {
             hit.transform.gameObject.layer = 19;
             hit.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            hit.transform.gameObject.GetComponent<ignoreCharacterControllerCollision>().enabled = true;
         }
     }
 }
