@@ -76,18 +76,22 @@ public class SequenceManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
 
-            b_Scene0 = false;
-            b_Scene1 = true;
-            b_Scene2 = false;
-            b_Scene3 = false;
-            StartCoroutine(UnloadSceneAndSetActive2());
+            //b_Scene0 = false;
+            //b_Scene1 = true;
+            //b_Scene2 = false;
+            //b_Scene3 = false;
+            //StartCoroutine(UnloadSceneAndSetActive2());
+            StartCoroutine(LoadSceneAndSetActive0());
+            fractal.enabled = false;
+
+
+            StartCoroutine(UnloadSceneAndSetActive1());
 
 
 
-
-            StartCoroutine(UnloadSceneAndSetActive0());
-            StartCoroutine(UnloadSceneAndSetActive2());
-            StartCoroutine(UnloadSceneAndSetActive3());
+            //StartCoroutine(UnloadSceneAndSetActive0());
+            //StartCoroutine(UnloadSceneAndSetActive2());
+            //StartCoroutine(UnloadSceneAndSetActive3());
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && !b_Scene2)
