@@ -25,7 +25,27 @@ ModelImporter:
     4300002: L_LOD1
     4300004: L_LOD0
     20500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: billboards
+    second: {fileID: 2100000, guid: 07e9d1961a54e70449c2a91d01e211f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: branches
+    second: {fileID: 2100000, guid: af004394044e45149baede9a7886a979, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stump
+    second: {fileID: 2100000, guid: 9ec037f59f35e8744be8572ed684235e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trunk
+    second: {fileID: 2100000, guid: 2b4345c1380a6674fbf28c4e74c68d0e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
