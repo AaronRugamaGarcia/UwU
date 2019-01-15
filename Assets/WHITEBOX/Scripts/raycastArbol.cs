@@ -9,19 +9,22 @@ public class raycastArbol : MonoBehaviour
     RaycastHit hit;
     public GameObject arbol;
     NavMeshAgent agent;
+    Vector3 forwardVector;
     public bool hitArbol;
+    GameObject cam;
 
     private void Awake()
     {
+        cam = GameObject.Find("Main Camera");
         agent = arbol.GetComponent<NavMeshAgent>();
         hitArbol = false;
     }
 
     void Update()
     {
-        Vector3 fwd = transform.TransformDirection(Vector3.forward) * 100;
-        ray = new Ray(gameObject.transform.position + transform.up * 2, fwd);
-        Debug.DrawRay(gameObject.transform.position + transform.up * 2, fwd, Color.green);
+        Vector3 forwardVector = cam.transform.forward * 8;
+        ray = new Ray(cam.transform.position, forwardVector);
+        Debug.DrawRay(cam.transform.position, forwardVector, Color.green);
 
         if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Arbol")
         {
