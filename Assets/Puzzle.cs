@@ -17,6 +17,9 @@ public class Puzzle : MonoBehaviour
 
     public Animator anim;
 
+    public bool b_child;
+    public GameObject m_child;
+
 
     public void Awake()
     {
@@ -51,6 +54,17 @@ public class Puzzle : MonoBehaviour
             Fractals.enabled = !Fractals.enabled;
             Servers_Room.SetActive(false);
             Fractals_Room.SetActive(true);
+
+            b_child = true;
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Child"))
+        {
+            Debug.Log("niño");
         }
     }
 }
