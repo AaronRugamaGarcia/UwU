@@ -16,7 +16,7 @@ public class CameraBehaviours : MonoBehaviour
     public bool b_room;
 
     public Animator anim;
-    public string animationName;
+    
 
     // Start is called before the first frame update
     void Start()
