@@ -15,6 +15,9 @@ public class CameraBehaviours : MonoBehaviour
     public int i_rooms;
     public bool b_room;
 
+    public Animator anim;
+    public string animationName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +29,7 @@ public class CameraBehaviours : MonoBehaviour
         Servers_Room.SetActive(true);
         Fractals_Room.SetActive(false);
 
-        
+        anim = GetComponent<Animator>();
 
      
     }
@@ -45,12 +48,15 @@ public class CameraBehaviours : MonoBehaviour
             
              if(b_room)
             {
+                anim.Play("PixelizerOn");
+
                 Fractals.enabled = !Fractals.enabled;
                 Servers_Room.SetActive(false);
                 Fractals_Room.SetActive(true);
             }
             else
             {
+                anim.Play("PixelizerOn");
                 Fractals.enabled = !Fractals.enabled;
                 Servers_Room.SetActive(true);
                 Fractals_Room.SetActive(false);
