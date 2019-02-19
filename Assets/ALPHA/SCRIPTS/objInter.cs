@@ -6,7 +6,6 @@ public class objInter : MonoBehaviour
 {
     public Camera cam;
     public Color color1 = Color.black;
-
     public GameObject[] interObj;
 
     private void Awake()
