@@ -23,6 +23,15 @@ public class Poderes : MonoBehaviour
     public GameObject[] interObj;
     public Camera camcam;
 
+    public Material ObjetosInteractuables_V;
+    public Material ObjetosInteractuables_NV;
+
+    public Material ObjetosNOInteractuables_V;
+    public Material ObjetosNOInteractuables_NV;
+    
+
+
+
     private void Awake()
     {
         interObj = GameObject.FindGameObjectsWithTag("objInter");
@@ -95,6 +104,8 @@ public class Poderes : MonoBehaviour
                     Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("NormalObject"));
                     Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("NoCollisionsObject"));
                     Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("MovableObject"));
+
+                    //indicador.GetComponentsInChildren<Renderer>().material = 
                     //añadir todas las layers, menos las de los object interactuables
 
                     foreach (GameObject go in interObj)
