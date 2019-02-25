@@ -627,14 +627,14 @@ public class vp_FPCamera : vp_Component
 	protected virtual void UpdateZoom()
 	{
 
-		if (m_FinalZoomTime <= Time.time)
-			return;
+        if (m_FinalZoomTime <= Time.time)
+            return;
 
-		RenderingZoomDamping = Mathf.Max(RenderingZoomDamping, 0.01f);
-		float zoom = 1.0f - ((m_FinalZoomTime - Time.time) / RenderingZoomDamping);
-		Camera.fieldOfView = Mathf.SmoothStep(Camera.fieldOfView, RenderingFieldOfView + ZoomOffset, zoom);
+        RenderingZoomDamping = Mathf.Max(RenderingZoomDamping, 0.01f);
+        float zoom = 1.0f - ((m_FinalZoomTime - Time.time) / RenderingZoomDamping);
+        Camera.fieldOfView = Mathf.SmoothStep(Camera.fieldOfView, RenderingFieldOfView + ZoomOffset, zoom);
 
-	}
+    }
 
 
 	/// <summary>
@@ -642,9 +642,9 @@ public class vp_FPCamera : vp_Component
 	/// </summary>
 	public void RefreshZoom()
 	{
-		float zoom = 1.0f - ((m_FinalZoomTime - Time.time) / RenderingZoomDamping);
-		Camera.fieldOfView = Mathf.SmoothStep(Camera.fieldOfView, RenderingFieldOfView + ZoomOffset, zoom);
-	}
+        float zoom = 1.0f - ((m_FinalZoomTime - Time.time) / RenderingZoomDamping);
+        Camera.fieldOfView = Mathf.SmoothStep(Camera.fieldOfView, RenderingFieldOfView + ZoomOffset, zoom);
+    }
 
 
 	/// <summary>

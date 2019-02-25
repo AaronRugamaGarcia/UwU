@@ -5,13 +5,26 @@ using UnityEngine;
 public class Poderes : MonoBehaviour
 {
     public int poder;
+    public Animator camAnimator;
 
     //Dash
     public GameObject indicador;
     public float pushPower = 0.05f;
     public CharacterController characterController;
     Vector3 forwardVector;
-    GameObject cam;
+    public GameObject cam;
+    public ParticleSystem Dash_VFX;
+    public float Fov;
+    bool b_dashIN;
+    bool b_dashOUT;
+
+    float max = 120.0f;
+    float min = 60.0f;
+    float fovIN_anim_duration = 4.0f;
+    float fovOUT_anim_duration = 4.0f;
+    float startTime;
+
+
 
     //Glitch
     Ray rayo;
@@ -28,7 +41,11 @@ public class Poderes : MonoBehaviour
 
     public Material ObjetosNOInteractuables_V;
     public Material ObjetosNOInteractuables_NV;
-    
+
+
+
+
+    static float t = 0.0f;
 
 
 
@@ -39,7 +56,17 @@ public class Poderes : MonoBehaviour
 
     void Start()
     {
+
+        startTime = Time.time;
+        
+
         cam = GameObject.Find("Main Camera");
+       
+        
+
+
+        camAnimator = cam.GetComponent<Animator>();
+
         foreach (GameObject go in interObj)
         {
             go.SetActive(false);
@@ -48,6 +75,37 @@ public class Poderes : MonoBehaviour
 
     void Update()
     {
+        
+
+
+        //if(b_dashIN==true)
+        //{
+            
+            
+
+        //    float t = (Time.time - startTime) / fovIN_anim_duration;
+
+        //    cam.gameObject.GetComponent<Camera>().fieldOfView = 120.0f;
+
+
+        //    if (cam.gameObject.GetComponent<vp_FPCamera>().RenderingFieldOfView >= max)
+        //    {
+        //        b_dashOUT = true;
+        //        b_dashIN = false;
+                
+        //    }
+        //}
+        //if(b_dashOUT==true)
+        //{
+        //    float t = (Time.time - startTime) / fovOUT_anim_duration;
+
+        //    cam.gameObject.GetComponent<vp_FPCamera>().RenderingFieldOfView = Mathf.Lerp(max, min, t);
+
+        //}
+
+
+
+
         if (Input.GetKey(KeyCode.Alpha1))
         {
             poder = 1;
@@ -66,9 +124,11 @@ public class Poderes : MonoBehaviour
             case 1:
                 forwardVector = camcam.transform.forward;
 
-                if (Input.GetKey(KeyCode.Q))
+                if (Input.GetKeyDown(KeyCode.Q))
                 {
                     indicador.SetActive(true);
+                    
+                    
                 }
                 else
                 {
@@ -77,8 +137,9 @@ public class Poderes : MonoBehaviour
 
                 if (Input.GetKeyUp(KeyCode.Q))
                 {
-                    characterController.Move(forwardVector * pushPower);
-                    indicador.SetActive(false);
+                    StartCoroutine(Dash());
+
+
                 }
                 break;
             case 2:
@@ -131,5 +192,33 @@ public class Poderes : MonoBehaviour
                 }
                 break;
         }
+    }
+
+
+    IEnumerator Dash()
+    {
+
+        b_dashIN = true;
+        Dash_VFX.Play();
+
+        
+
+
+        //cam.gameObject.GetComponent<vp_FPCamera>().RenderingFieldOfView = 120;
+        cam.gameObject.GetComponent<AudioSource>().Play();
+
+        characterController.Move(forwardVector * pushPower);
+        //camAnimator.Play("Fov", 0, 0.25f);
+
+        indicador.SetActive(false);
+        
+        
+        
+        yield return new WaitForSeconds(.1f);
+        //cam.gameObject.GetComponent<vp_FPCamera>().RenderingFieldOfView = Mathf.Lerp(max, min, 0.5f * Time.deltaTime);
+        //cam.gameObject.GetComponent<vp_FPCamera>().RenderingFieldOfView = 60;
+        Dash_VFX.Stop();
+
+        b_dashIN = false;
     }
 }
