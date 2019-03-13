@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Poderes : MonoBehaviour
 {
     public int poder;
     public Animator camAnimator;
+    public Toggle dashToggle;
+    public Toggle glitchToggle;
+    public Toggle visionToggle;
 
     //Dash
     public GameObject indicador;
@@ -58,11 +62,11 @@ public class Poderes : MonoBehaviour
     {
 
         startTime = Time.time;
-        
+
 
         cam = GameObject.Find("Main Camera");
-       
-        
+
+
 
 
         camAnimator = cam.GetComponent<Animator>();
@@ -75,13 +79,13 @@ public class Poderes : MonoBehaviour
 
     void Update()
     {
-        
+
 
 
         //if(b_dashIN==true)
         //{
-            
-            
+
+
 
         //    float t = (Time.time - startTime) / fovIN_anim_duration;
 
@@ -92,7 +96,7 @@ public class Poderes : MonoBehaviour
         //    {
         //        b_dashOUT = true;
         //        b_dashIN = false;
-                
+
         //    }
         //}
         //if(b_dashOUT==true)
@@ -109,14 +113,23 @@ public class Poderes : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha1))
         {
             poder = 1;
+            /*dashToggle.isOn = true;
+            glitchToggle.isOn = false;
+            visionToggle.isOn = false;*/
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
             poder = 2;
+            /*dashToggle.isOn = false;
+            glitchToggle.isOn = true;
+            visionToggle.isOn = false;*/
         }
         else if (Input.GetKey(KeyCode.Alpha3))
         {
             poder = 3;
+            /*dashToggle.isOn = false;
+            glitchToggle.isOn = false;
+            visionToggle.isOn = true;*/
         }
 
         switch (poder)
@@ -127,8 +140,6 @@ public class Poderes : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     indicador.SetActive(true);
-                    
-                    
                 }
                 else
                 {
@@ -201,7 +212,7 @@ public class Poderes : MonoBehaviour
         b_dashIN = true;
         Dash_VFX.Play();
 
-        
+
 
 
         //cam.gameObject.GetComponent<vp_FPCamera>().RenderingFieldOfView = 120;
@@ -211,9 +222,9 @@ public class Poderes : MonoBehaviour
         //camAnimator.Play("Fov", 0, 0.25f);
 
         indicador.SetActive(false);
-        
-        
-        
+
+
+
         yield return new WaitForSeconds(.1f);
         //cam.gameObject.GetComponent<vp_FPCamera>().RenderingFieldOfView = Mathf.Lerp(max, min, 0.5f * Time.deltaTime);
         //cam.gameObject.GetComponent<vp_FPCamera>().RenderingFieldOfView = 60;
