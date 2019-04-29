@@ -5,10 +5,7 @@ using UnityEngine;
 public class emisivoCubos : MonoBehaviour
 {
     
-    Color randomColor;
-    Color red;
-    Color green;
-    Color blue;
+    
 
 
 
@@ -16,7 +13,7 @@ public class emisivoCubos : MonoBehaviour
     {
         Material ourMat = this.gameObject.GetComponent<Renderer>().material;
         //randomColor = new Color(Random.Range(0.5f, 0.7f), Random.Range(0.5f, 0.7f), Random.Range(0.5f, 0.7f));
-        Color colorin = Random.ColorHSV(0.5f, 1.0f, 1.0f,1.0f,1f,1f,1f,1f);
+        Color colorin = Random.ColorHSV(0.5f, 1.0f, 1.0f,1.0f,1.0f,1.0f,1.0f,1.0f);
 
         ourMat.EnableKeyword("_EMISSION");
         ourMat.SetColor("_EmissionColor", colorin);

@@ -31,7 +31,8 @@ public class CameraBehaviours : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-     
+
+        StartCoroutine("Changeroom2");
     }
 
     
@@ -42,37 +43,60 @@ public class CameraBehaviours : MonoBehaviour
         
 
 
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            b_room = !b_room;
+        //if(Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    b_room = !b_room;
             
-             if(b_room)
-            {
-                anim.Play("PixelizerOn");
+        //     if(b_room)
+        //    {
+        //        anim.Play("PixelizerOn");
 
-                Fractals.enabled = !Fractals.enabled;
-                Servers_Room.SetActive(false);
-                Fractals_Room.SetActive(true);
-            }
-            else
-            {
-                anim.Play("PixelizerOn");
-                Fractals.enabled = !Fractals.enabled;
-                Servers_Room.SetActive(true);
-                Fractals_Room.SetActive(false);
-            }
+        //        Fractals.enabled = !Fractals.enabled;
+        //        Servers_Room.SetActive(false);
+        //        Fractals_Room.SetActive(true);
+        //    }
+        //    else
+        //    {
+        //        anim.Play("PixelizerOn");
+        //        Fractals.enabled = !Fractals.enabled;
+        //        Servers_Room.SetActive(true);
+        //        Fractals_Room.SetActive(false);
+        //    }
             
 
 
 
 
-        }
+        //}
 
         
 
 
 
 
+    }
+    IEnumerator Changeroom1()
+    {
+        yield return new WaitForSeconds(5.0f);
+        anim.Play("PixelizerOn");
+        Fractals.enabled = true;
+        //Fractals.enabled = !Fractals.enabled;
+        Servers_Room.SetActive(false);
+        Fractals_Room.SetActive(true);
+
+        StartCoroutine("Changeroom2");
+    }
+
+    IEnumerator Changeroom2()
+    {
+        yield return new WaitForSeconds(5.0f);
+        anim.Play("PixelizerOn");
+        Fractals.enabled = true;
+        //Fractals.enabled = !Fractals.enabled;
+        Servers_Room.SetActive(true);
+        Fractals_Room.SetActive(false);
+
+        StartCoroutine("Changeroom1");
     }
 
 
