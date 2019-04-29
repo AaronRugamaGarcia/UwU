@@ -14,7 +14,7 @@ public class TimeOut_servers : MonoBehaviour
 
     IEnumerator TimeOutServers()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(120f);
         SceneManager.LoadScene(1);
         yield return null;
     }

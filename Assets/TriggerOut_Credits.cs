@@ -14,7 +14,7 @@ public class TriggerOut_Credits : MonoBehaviour
 
     IEnumerator TimeOutCredits()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(16f);
         SceneManager.LoadScene(8);
         yield return null;
     }

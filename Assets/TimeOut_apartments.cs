@@ -14,7 +14,7 @@ public class TimeOut_apartments : MonoBehaviour
     
     IEnumerator TimeOutApartments()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(120f);
         SceneManager.LoadScene(2);
         yield return null;
     }
