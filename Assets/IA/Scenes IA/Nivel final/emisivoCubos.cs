@@ -6,16 +6,23 @@ public class emisivoCubos : MonoBehaviour
 {
     
     Color randomColor;
-    
-  
+    Color red;
+    Color green;
+    Color blue;
+
+
 
     void Start()
     {
+        Material ourMat = this.gameObject.GetComponent<Renderer>().material;
+        //randomColor = new Color(Random.Range(0.5f, 0.7f), Random.Range(0.5f, 0.7f), Random.Range(0.5f, 0.7f));
+        Color colorin = Random.ColorHSV(0.5f, 1.0f, 1.0f,1.0f,1f,1f,1f,1f);
+
+        ourMat.EnableKeyword("_EMISSION");
+        ourMat.SetColor("_EmissionColor", colorin);
+        ourMat.SetColor("Color", colorin);
         
-        randomColor = new Color(Random.Range(0.5f, 0.7f), Random.Range(0.5f, 0.7f), Random.Range(0.5f, 0.7f));
-        
-        gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-        gameObject.GetComponent<Renderer>().material.SetColor("_EMISSION",new Color(1.0f, 0.0f,0.0f,0.0f));
+        //this.GetComponent<Renderer>().material.SetColor("_EMISSION", colorin);
 
         //mater = new Material(Shader.Find("Standard"));
         //mr.material = mater;
