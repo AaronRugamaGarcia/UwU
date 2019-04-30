@@ -14,7 +14,7 @@ public class TimeOut_Forest : MonoBehaviour
 
     IEnumerator TimeOutForest()
     {
-        yield return new WaitForSeconds(120f);
+        yield return new WaitForSeconds(60f);
         SceneManager.LoadScene(7);
         yield return null;
     }

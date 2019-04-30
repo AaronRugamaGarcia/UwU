@@ -21,7 +21,7 @@ public class VideoConejilloLoader : MonoBehaviour
     {
 
         yield return new WaitForSeconds(32.0f);
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6);
         yield return null;
     }
 }
