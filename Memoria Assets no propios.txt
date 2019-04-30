@@ -1,0 +1,8 @@
+MEMORIA ASSETS NO PROPIOS UTILIZADOS
+
+
+
+1-Script First Person Shooter
+2-Modelo y texturas personaje jugador
+3-Shader holograma 
+4-Música: Canción AS CRUST, de Amnesia Scanner. Loyalty (album Polygon Wanaland), de King Gizzard & the Lizard Wizard. Audios de la at.bbc.co.uk. 
